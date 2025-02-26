@@ -7,6 +7,7 @@ import (
 
 type Frame interface {
 	encoding.BinaryMarshaler
+	encoding.BinaryUnmarshaler
 
 	// Size returns the size in bytes of the encoded frame. It calls
 	// `MarshalBinary()` and if it returns an error, Size will return

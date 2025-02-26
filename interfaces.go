@@ -14,7 +14,7 @@ type Frame interface {
 	Size() int
 
 	// Type returns the frame type/function identifier
-	Type() uint8
+	Type() int
 }
 
 type Protocol interface {

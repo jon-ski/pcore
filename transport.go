@@ -99,6 +99,14 @@ func (t *TCPConn) SendWithTimeout(data []byte, timeout time.Duration) ([]byte, e
 	return buffer[:n], nil
 }
 
+func (t *TCPConn) Write(p []byte) (n int, err error) {
+	return t.conn.Write(p)
+}
+
+func (t *TCPConn) Read(p []byte) (n int, err error) {
+	return t.conn.Read(p)
+}
+
 // TCPProvider implements TransportProvider for TCP
 type TCPProvider struct{}
 

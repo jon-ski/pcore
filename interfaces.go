@@ -2,6 +2,7 @@ package pcore
 
 import (
 	"encoding"
+	"io"
 	"time"
 )
 
@@ -31,6 +32,8 @@ type Protocol interface {
 
 // Conn represents a basic connection to a device or system
 type Conn interface {
+	io.ReadWriter
+
 	// Open establishes the connection
 	Open() error
 
@@ -55,9 +58,6 @@ type StreamConn interface {
 
 	// Unsubscribe removes subscription
 	Unsubscribe() error
-
-	// Write sends data without expecting a direct response
-	Write(data []byte) error
 }
 
 // Client defines a base client interface
